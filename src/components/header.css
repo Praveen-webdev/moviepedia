@@ -1,0 +1,35 @@
+@import url("https://fonts.googleapis.com/css2?family=Righteous&display=swap");
+
+.header {
+    background-color: #fab005;
+    color: #181920ff;
+}
+.navbar-brand {
+    font-family: "Righteous", cursive !important;
+}
+#input {
+    border-radius: 30px;
+    width: 30vw;
+    margin-right: 9px;
+}
+#search {
+    margin-left: -50px;
+    color: #ffffd1ff;
+    border-radius: 30px;
+    background-color: #424242ff;
+    text-align: center;
+    padding-right: 10px;
+    padding-left: 8px;
+}
+.navbar-brand {
+    align-items: center;
+}
+.header-items {
+    display: flex;
+    align-items: ;
+}
+@media screen and (max-width: 800px) {
+    #input {
+        width: 55vw;
+    }
+}
