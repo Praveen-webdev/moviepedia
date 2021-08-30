@@ -14,12 +14,14 @@
 }
 #search {
     margin-left: -50px;
-    color: #ffffd1ff;
+    color: #fab005;
     border-radius: 30px;
     background-color: #424242ff;
-    text-align: center;
     padding-right: 10px;
     padding-left: 8px;
+}
+#search svg {
+    vertical-align: baseline !important;
 }
 .navbar-brand {
     align-items: center;
