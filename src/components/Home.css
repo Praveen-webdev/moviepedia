@@ -1,6 +1,10 @@
 .carousel-caption {
   color: #fab005 !important;
 }
+.spinner {
+  width: 100vw;
+  height: 30vh;
+}
 
 @media screen and (max-width: 800px) {
   .carousel-caption h5 {

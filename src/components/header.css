@@ -7,6 +7,10 @@
 .navbar-brand {
     font-family: "Righteous", cursive !important;
 }
+.form-control:focus {
+    box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075),
+        0 0 8px rgba(42, 0, 0, 0.6);
+}
 #input {
     border-radius: 30px;
     width: 30vw;
@@ -29,6 +33,11 @@
 .header-items {
     display: flex;
     align-items: ;
+}
+.genre {
+    align-items: center;
+    place-items: flex-end;
+    justify-content: center;
 }
 @media screen and (max-width: 800px) {
     #input {

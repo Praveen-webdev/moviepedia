@@ -1,6 +1,7 @@
 import React from "react";
 import "./Home.css";
 import CarouselComponent from "./CarouselComponent.js";
+import GenreList from "./Genrelist.jsx";
 
 const apiKey = `${process.env.REACT_APP_MY_API_KEY}`;
 const url = "https://api.themoviedb.org/3";
@@ -17,12 +18,20 @@ const nowPlayingOptions = {
 const genreListOptions = {
 	params: { api_key: apiKey, language: "en_US", page: 1 },
 };
+const handleGenreFetch = (genreId) => {
+	console.log(genreId);
+};
 const Home = () => {
 	return (
 		<div className="home">
 			<CarouselComponent
 				url={nowPlayingUrl}
 				options={nowPlayingOptions}
+			/>
+			<GenreList
+				url={genreUrl}
+				options={genreListOptions}
+				handleGenreFetch={handleGenreFetch}
 			/>
 		</div>
 	);

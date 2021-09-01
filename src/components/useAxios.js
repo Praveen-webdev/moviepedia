@@ -12,7 +12,7 @@ function useAxios(url, options) {
 				setData(res.data);
 			})
 			.catch((err) => setError(`error in${url}`));
-	}, []);
+	}, [options]);
 	return { data, error };
 }
 

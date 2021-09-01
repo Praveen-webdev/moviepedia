@@ -6,11 +6,14 @@ import Carousel from "./Carousel.js";
 const CarouselComponent = ({ url, options }) => {
 	const { data: nowPlaying } = useAxios(url, options);
 	const nowPlayingArray = nowPlaying.results;
+	console.log("carousel");
 
 	return (
 		<>
 			{nowPlayingArray == null ? (
-				<Spinner />
+				<div className="d-block spinner">
+					<Spinner />
+				</div>
 			) : (
 				<div
 					id="carouselExampleCaptions"
