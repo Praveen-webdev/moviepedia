@@ -10,3 +10,7 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
+.spinner-border {
+  margin-left: 48vw !important;
+  margin-top: 10vh !important;
+}

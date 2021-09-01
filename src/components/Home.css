@@ -1,0 +1,9 @@
+.carousel-caption {
+  color: #fab005 !important;
+}
+
+@media screen and (max-width: 800px) {
+  .carousel-caption h5 {
+    color: white !important;
+  }
+}

@@ -2,16 +2,16 @@ import { useState, useEffect } from "react";
 import axios from "axios";
 
 function useAxios(url, options) {
-	const [data, setData] = useState([]);
+	const [data, setData] = useState({});
 	const [error, setError] = useState("");
 
 	useEffect(() => {
 		axios
 			.get(url, options)
 			.then((res) => {
-				setData(res.data.results);
+				setData(res.data);
 			})
-			.catch((err) => setError(err));
+			.catch((err) => setError(`error in${url}`));
 	}, []);
 	return { data, error };
 }

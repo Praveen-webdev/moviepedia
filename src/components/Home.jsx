@@ -1,5 +1,6 @@
-import React, { useEffect } from "react";
-import useAxios from "./useAxios.js";
+import React from "react";
+import "./Home.css";
+import CarouselComponent from "./CarouselComponent.js";
 
 const apiKey = `${process.env.REACT_APP_MY_API_KEY}`;
 const url = "https://api.themoviedb.org/3";
@@ -13,11 +14,18 @@ const nowPlayingOptions = {
 	params: { api_key: apiKey, language: "en_US", page: 1 },
 };
 
+const genreListOptions = {
+	params: { api_key: apiKey, language: "en_US", page: 1 },
+};
 const Home = () => {
-	const { data: nowPlaying } = useAxios(nowPlayingUrl, nowPlayingOptions);
-	console.log(nowPlaying);
-
-	return <div className="container">home</div>;
+	return (
+		<div className="home">
+			<CarouselComponent
+				url={nowPlayingUrl}
+				options={nowPlayingOptions}
+			/>
+		</div>
+	);
 };
 
 export default Home;
