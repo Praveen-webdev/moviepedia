@@ -1,8 +1,10 @@
 import React from "react";
+import { Link } from "react-router-dom";
+
 const Carousel = ({ movie }) => {
 	return (
 		<>
-			<div className="carousel-item">
+			<Link className="carousel-item" to={`/movie/${movie.id}`}>
 				<img
 					style={{ filter: "brightness(80%)", background: "cover" }}
 					src={`https://image.tmdb.org/t/p/w500${movie.backdrop_path}`}
@@ -13,7 +15,7 @@ const Carousel = ({ movie }) => {
 					<h5>{movie.title}</h5>
 					<h6>Rating:{movie.vote_average}</h6>
 				</div>
-			</div>
+			</Link>
 		</>
 	);
 };

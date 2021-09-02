@@ -4,16 +4,22 @@ import axios from "axios";
 function useAxios(url, options) {
 	const [data, setData] = useState({});
 	const [error, setError] = useState("");
+	const [isLoading, setIsLoading] = useState(false);
 
 	useEffect(() => {
-		axios
-			.get(url, options)
-			.then((res) => {
-				setData(res.data);
-			})
-			.catch((err) => setError(`error in${url}`));
+		setIsLoading(true);
+		const fetchData = () => {
+			axios
+				.get(url, options)
+				.then((res) => {
+					setData(res.data);
+					setIsLoading(false);
+				})
+				.catch((err) => setError(`error in${url}`));
+		};
+		fetchData();
 	}, [options]);
-	return { data, error };
+	return { data, error, isLoading };
 }
 
 export default useAxios;

@@ -2,7 +2,7 @@ import React from "react";
 import useAxios from "./useAxios";
 
 const Genrelist = ({ url, options, handleGenreFetch }) => {
-	const { data: genreList } = useAxios(url, options);
+	const { data: genreList } = useAxios(url && url, options && options);
 	const genreListArray = genreList.genres;
 	console.log("genres");
 	return (
@@ -26,7 +26,7 @@ const Genrelist = ({ url, options, handleGenreFetch }) => {
 						genreListArray.slice(0, 9).map((genre) => (
 							<a
 								key={genre.id}
-								className="dropdown-item"
+								className="dropdown-item "
 								href="#"
 								onClick={() => handleGenreFetch(genre.id)}
 							>
