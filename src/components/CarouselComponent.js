@@ -3,10 +3,11 @@ import useAxios from "./useAxios.js";
 import Spinner from "./Spinner.js";
 import Carousel from "./Carousel.js";
 
-const CarouselComponent = ({ url, options }) => {
-	const { data: nowPlaying } = useAxios(url, options);
+const CarouselComponent = ({ url }) => {
+	const { data: nowPlaying, isLoading } = useAxios(url);
 	const nowPlayingArray = nowPlaying.results;
 	console.log("carousel");
+	console.log(isLoading);
 
 	return (
 		<>

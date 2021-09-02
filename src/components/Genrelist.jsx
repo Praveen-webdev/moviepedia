@@ -1,8 +1,9 @@
-import React from "react";
+import React, { useState } from "react";
 import useAxios from "./useAxios";
 
-const Genrelist = ({ url, options, handleGenreFetch }) => {
-	const { data: genreList } = useAxios(url && url, options && options);
+const Genrelist = ({ url, handleGenreFetch }) => {
+	const [currentGenre, setCurrentGenre] = useState("Select Genre");
+	const { data: genreList } = useAxios(url);
 	const genreListArray = genreList.genres;
 	console.log("genres");
 	return (
@@ -18,7 +19,7 @@ const Genrelist = ({ url, options, handleGenreFetch }) => {
 					aria-haspopup="true"
 					aria-expanded="false"
 				>
-					Select Genre
+					{currentGenre}
 				</a>
 
 				<div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
@@ -27,8 +28,10 @@ const Genrelist = ({ url, options, handleGenreFetch }) => {
 							<a
 								key={genre.id}
 								className="dropdown-item "
-								href="#"
-								onClick={() => handleGenreFetch(genre.id)}
+								onClick={() => {
+									handleGenreFetch(genre.id);
+									setCurrentGenre(genre.name);
+								}}
 							>
 								{genre.name}
 							</a>

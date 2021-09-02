@@ -1,3 +1,6 @@
+.carousel-item a {
+  text-decoration: none;
+}
 .carousel-caption {
   color: #fab005 !important;
 }
@@ -5,7 +8,9 @@
   width: 100vw;
   height: 30vh;
 }
-
+.dropdown {
+  width: 5rem;
+}
 @media screen and (max-width: 800px) {
   .carousel-caption h5 {
     color: white !important;
