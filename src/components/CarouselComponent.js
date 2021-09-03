@@ -2,12 +2,12 @@ import React from "react";
 import useAxios from "./useAxios.js";
 import Spinner from "./Spinner.js";
 import Carousel from "./Carousel.js";
+import { Link } from "react-router-dom";
 
 const CarouselComponent = ({ url }) => {
 	const { data: nowPlaying, isLoading } = useAxios(url);
 	const nowPlayingArray = nowPlaying.results;
 	console.log("carousel");
-	console.log(isLoading);
 
 	return (
 		<>
@@ -25,14 +25,17 @@ const CarouselComponent = ({ url }) => {
 						<div className="carousel-item active">
 							<img
 								style={{ filter: "brightness(80%)" }}
-								src="https://image.tmdb.org/t/p/w500/z2UtGA1WggESspi6KOXeo66lvLx.jpg"
+								src="https://image.tmdb.org/t/p/w500/3pIqd1hgZ2xqzWEyiYp4blqE9Fi.jpg"
 								className="d-block mw-100  lg-w-50"
 								alt="Quiet place2"
 							/>
-							<div className="carousel-caption ">
-								<h5>A Quiet Place </h5>
-								<h3>Rating:8.7</h3>
-							</div>
+							<Link
+								className="carousel-caption "
+								to="/movie/522241"
+							>
+								<h5>The Courier</h5>
+								<h3>Rating:7.1</h3>
+							</Link>
 						</div>
 						{nowPlayingArray.map((movie) => (
 							<Carousel key={movie.id} movie={movie} />
