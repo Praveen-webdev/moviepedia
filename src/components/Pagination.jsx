@@ -3,7 +3,7 @@ import ReactPaginate from "react-paginate";
 
 const Pagination = ({ handlePageClick }) => {
 	return (
-		<>
+		<div className="container mt-2">
 			<ReactPaginate
 				previousLabel={"← "}
 				nextLabel={" →"}
@@ -19,7 +19,7 @@ const Pagination = ({ handlePageClick }) => {
 				disabledClassName={"pagination__link--disabled"}
 				activeClassName={"pagination__link--active"}
 			/>
-		</>
+		</div>
 	);
 };
 

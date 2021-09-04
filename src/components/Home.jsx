@@ -13,7 +13,7 @@ const genreUrl = `${url}/genre/movie/list?api_key=${process.env.REACT_APP_MY_API
 const personUrl = `${url}/trending/person/week`;
 
 const Home = () => {
-	const [genrePage, setGenrePage] = useState(24);
+	const [genrePage, setGenrePage] = useState(20);
 	const [genreId, setGenreId] = useState(28);
 	const handleGenreFetch = (genreid) => {
 		setGenreId(genreid);
@@ -21,7 +21,7 @@ const Home = () => {
 	console.log(genreId);
 	const moviesUrl = `${url}/discover/movie?api_key=${process.env.REACT_APP_MY_API_KEY}&page=${genrePage}&with_genres=${genreId}`;
 	function handlePageClick({ selected: selectedPage }) {
-		setGenrePage(selectedPage === 0 ? 24 : selectedPage);
+		setGenrePage(selectedPage === 0 ? 20 : selectedPage);
 		window.scrollTo({
 			top: 195,
 			behavior: "smooth",

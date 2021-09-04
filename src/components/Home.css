@@ -88,7 +88,7 @@
 /* pagination*/
 .pagination {
   display: flex;
-  justify-content: space-between;
+  justify-content: space-around;
   list-style: none;
   cursor: pointer;
 }
@@ -96,8 +96,9 @@
 .pagination a {
   padding: 10px;
   border-radius: 5px;
-  border: 1px solid #6c7ac9;
-  color: #6c7ac9;
+  border: 1px solid #fab005;
+  color: #fab005;
+  text-decoration: none;
 }
 
 .pagination__link {
@@ -105,8 +106,8 @@
 }
 
 .pagination__link--active a {
-  color: #fff;
-  background: #6c7ac9;
+  color: #181920ff !important;
+  background: #fab005;
 }
 
 .pagination__link--disabled a {
