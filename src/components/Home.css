@@ -1,6 +1,6 @@
 /* CarouselComponent.js */
 .mt-62 {
-  margin-top: 52px;
+  margin-top: 62px;
 }
 .mh-container {
   min-height: 80vh;
@@ -20,6 +20,7 @@
 }
 .dropdown {
   width: 5rem;
+  margin-left: 10px;
 }
 .dropdown-menu {
   max-height: 230px;

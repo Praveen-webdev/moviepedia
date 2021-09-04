@@ -5,12 +5,10 @@ import GenreList from "./Genrelist.jsx";
 import Genre from "./Genre.jsx";
 import Pagination from "./Pagination.jsx";
 
-const apiKey = `${process.env.REACT_APP_MY_API_KEY}`;
 const url = "https://api.themoviedb.org/3";
 const nowPlayingUrl = `${url}/movie/now_playing?api_key=${process.env.REACT_APP_MY_API_KEY}&page=1`;
 const topratedUrl = `${url}/movie/top_rated`;
 const genreUrl = `${url}/genre/movie/list?api_key=${process.env.REACT_APP_MY_API_KEY}&page=1`;
-const personUrl = `${url}/trending/person/week`;
 
 const Home = () => {
 	const [genrePage, setGenrePage] = useState(20);
@@ -18,7 +16,6 @@ const Home = () => {
 	const handleGenreFetch = (genreid) => {
 		setGenreId(genreid);
 	};
-	console.log(genreId);
 	const moviesUrl = `${url}/discover/movie?api_key=${process.env.REACT_APP_MY_API_KEY}&page=${genrePage}&with_genres=${genreId}`;
 	function handlePageClick({ selected: selectedPage }) {
 		setGenrePage(selectedPage === 0 ? 20 : selectedPage);
@@ -27,7 +24,6 @@ const Home = () => {
 			behavior: "smooth",
 		});
 	}
-	console.log(genrePage);
 	return (
 		<>
 			<CarouselComponent url={nowPlayingUrl} />

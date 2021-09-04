@@ -5,10 +5,9 @@ const Genrelist = ({ url, handleGenreFetch }) => {
 	const [currentGenre, setCurrentGenre] = useState("Action");
 	const { data: genreList } = useAxios(url);
 	const genreListArray = genreList.genres;
-	console.log("genres");
 	return (
 		<div className="genre mt-2 d-flex sticky-top">
-			<h4>Category:</h4>
+			<h4>Genre : </h4>
 			<div class="dropdown ">
 				<a
 					class="btn btn-warning dropdown-toggle"

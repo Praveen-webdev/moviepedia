@@ -6,7 +6,6 @@ import Spinner from "./Spinner";
 const Genre = ({ url }) => {
 	const { data, isLoading } = useAxios(url);
 	const genreData = data.results;
-	console.log(genreData);
 
 	return (
 		<>

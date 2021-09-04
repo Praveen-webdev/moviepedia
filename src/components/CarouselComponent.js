@@ -7,7 +7,6 @@ import { Link } from "react-router-dom";
 const CarouselComponent = ({ url }) => {
 	const { data: nowPlaying, isLoading } = useAxios(url);
 	const nowPlayingArray = nowPlaying.results;
-	console.log("carousel");
 
 	return (
 		<>

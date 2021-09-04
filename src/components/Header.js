@@ -1,7 +1,18 @@
-import React from "react";
+import React, { useState } from "react";
 import "./header.css";
+import { useHistory } from "react-router-dom";
 
-export default function Header() {
+export default function Header({ setMovie }) {
+	const history = useHistory();
+	const [input, setInput] = useState("");
+	function handleInputChange(e) {
+		setInput(e.target.value);
+	}
+	function handleOnSubmit(e) {
+		e.preventDefault();
+		setMovie(input);
+		history.push("/search");
+	}
 	return (
 		<div className="header fixed-top ">
 			<nav className="navbar ">
@@ -19,13 +30,15 @@ export default function Header() {
 						</svg>
 						Moviepedia
 					</h4>
-					<form className="d-flex ">
+					<form className="d-flex " onSubmit={handleOnSubmit}>
 						<input
 							className="form-control "
 							type="search"
 							id="input"
 							placeholder="Search movies"
 							aria-label="Search"
+							onChange={handleInputChange}
+							value={input}
 						/>
 						<button type="submit" id="search">
 							<svg

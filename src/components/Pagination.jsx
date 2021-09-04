@@ -6,6 +6,7 @@ const Pagination = ({ handlePageClick }) => {
 		<div className="container mt-2">
 			<ReactPaginate
 				previousLabel={"← "}
+				forcePage={3}
 				nextLabel={" →"}
 				pageCount={99}
 				initialPage={0}
