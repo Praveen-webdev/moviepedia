@@ -11,11 +11,15 @@ const Genre = ({ url }) => {
 	return (
 		<>
 			{genreData == null ? (
-				<Spinner />
+				<div className="mh-container">
+					<Spinner />
+				</div>
 			) : isLoading ? (
-				<Spinner />
+				<div className="mh-container">
+					<Spinner />
+				</div>
 			) : (
-				<div className="mt-2 genre-container ">
+				<div className="mt-2 card-container mh-container ">
 					{genreData.slice(0, 18).map((movie) => (
 						<MoviesbyGenre movie={movie} key={movie.id} />
 					))}

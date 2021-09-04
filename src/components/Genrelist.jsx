@@ -2,12 +2,12 @@ import React, { useState } from "react";
 import useAxios from "./useAxios";
 
 const Genrelist = ({ url, handleGenreFetch }) => {
-	const [currentGenre, setCurrentGenre] = useState("Select Genre");
+	const [currentGenre, setCurrentGenre] = useState("Action");
 	const { data: genreList } = useAxios(url);
 	const genreListArray = genreList.genres;
 	console.log("genres");
 	return (
-		<div className="genre mt-1 d-flex">
+		<div className="genre mt-2 d-flex sticky-top">
 			<h4>Category:</h4>
 			<div class="dropdown ">
 				<a
@@ -24,7 +24,7 @@ const Genrelist = ({ url, handleGenreFetch }) => {
 
 				<div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
 					{genreListArray &&
-						genreListArray.slice(0, 9).map((genre) => (
+						genreListArray.slice(1).map((genre) => (
 							<a
 								key={genre.id}
 								className="dropdown-item "

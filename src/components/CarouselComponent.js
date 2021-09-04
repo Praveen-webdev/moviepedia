@@ -18,7 +18,7 @@ const CarouselComponent = ({ url }) => {
 			) : (
 				<div
 					id="carouselExampleCaptions"
-					className="carousel slide"
+					className="carousel slide carousel-fade mt-62"
 					data-ride="carousel"
 				>
 					<div className="carousel-inner">
@@ -26,7 +26,7 @@ const CarouselComponent = ({ url }) => {
 							<img
 								style={{ filter: "brightness(80%)" }}
 								src="https://image.tmdb.org/t/p/w500/3pIqd1hgZ2xqzWEyiYp4blqE9Fi.jpg"
-								className="d-block mw-100  lg-w-50"
+								className="d-block mw-100  lg-w-50 img-skeleton"
 								alt="Quiet place2"
 							/>
 							<Link

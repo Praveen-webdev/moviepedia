@@ -1,4 +1,13 @@
 /* CarouselComponent.js */
+.mt-62 {
+  margin-top: 52px;
+}
+.mh-container {
+  min-height: 80vh;
+}
+.carousel {
+  min-height: 30vh;
+}
 .carousel-item a {
   text-decoration: none;
 }
@@ -12,12 +21,16 @@
 .dropdown {
   width: 5rem;
 }
+.dropdown-menu {
+  max-height: 230px;
+  overflow-y: auto;
+}
 .spinner-border {
   margin-left: 48vw !important;
   margin-top: 10vh !important;
 }
 /*   MoviesByGenre.jsx*/
-.genre-container {
+.card-container {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
@@ -57,8 +70,12 @@
   text-align: center;
   color: #fab005;
 }
+.genre-img {
+  width: 200px;
+  height: 300px;
+}
 .img-skeleton {
-  animation: skeleton-loading 1s linear infinite alternate;
+  animation: skeleton-loading 500ms linear infinite alternate;
 }
 @keyframes skeleton-loading {
   0% {
@@ -68,9 +85,40 @@
     background-color: hsl(39, 100%, 50%);
   }
 }
+/* pagination*/
+.pagination {
+  display: flex;
+  justify-content: space-between;
+  list-style: none;
+  cursor: pointer;
+}
+
+.pagination a {
+  padding: 10px;
+  border-radius: 5px;
+  border: 1px solid #6c7ac9;
+  color: #6c7ac9;
+}
+
+.pagination__link {
+  font-weight: bold;
+}
+
+.pagination__link--active a {
+  color: #fff;
+  background: #6c7ac9;
+}
+
+.pagination__link--disabled a {
+  color: rgb(198, 197, 202);
+  border: 1px solid rgb(198, 197, 202);
+}
 
 @media screen and (max-width: 800px) {
   /* CarouselComponent.js */
+  .dropdown-menu {
+    max-height: 284px;
+  }
   .carousel-caption h5 {
     color: white !important;
   }
@@ -82,4 +130,5 @@
     width: 141px;
     height: 211.5px;
   }
+  /* pagination*/
 }

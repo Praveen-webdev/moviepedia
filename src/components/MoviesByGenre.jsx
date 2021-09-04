@@ -5,7 +5,7 @@ const MoviesByGenre = ({ movie }) => {
 	const history = useHistory();
 	return (
 		<div
-			className="card-wrapper "
+			className="card-wrapper  "
 			onClick={() => history.push(`/movie/${movie.id}`)}
 		>
 			<img

@@ -3,8 +3,8 @@ import "./header.css";
 
 export default function Header() {
 	return (
-		<div className="header">
-			<nav className="navbar  ">
+		<div className="header fixed-top ">
+			<nav className="navbar ">
 				<div id="header-items" className="container-fluid">
 					<h4 className="navbar-brand d-flex mt-1 ">
 						<svg
@@ -19,7 +19,7 @@ export default function Header() {
 						</svg>
 						Moviepedia
 					</h4>
-					<form className="d-flex">
+					<form className="d-flex ">
 						<input
 							className="form-control "
 							type="search"
