@@ -1,13 +1,30 @@
 import React from "react";
 import { useParams } from "react-router-dom";
 import useAxios from "./useAxios.js";
+import "./showmovie.css";
 
 const ShowMovie = () => {
 	const { id } = useParams();
 	const movieUrl = `https://api.themoviedb.org/3/movie/${id}?api_key=${process.env.REACT_APP_MY_API_KEY}`;
+	const trailerUrl = `https://api.themoviedb.org/3/movie/${id}/videos?api_key=${process.env.REACT_APP_MY_API_KEY}`;
+	const youtubeUrl = "https://www.youtube.com/watch?v=";
 	const { data: movieDetail } = useAxios(movieUrl);
+	const { data: trailerData } = useAxios(trailerUrl);
+	const trailerKey = trailerData?.results?.[0]?.key;
 	console.log(movieDetail);
-	return <div className="mt-62 mh-container">hola</div>;
+	console.log(trailerData);
+	console.log(trailerKey);
+	return (
+		<div className="mt-62 mh-container">
+			<div class="embed-responsive embed-responsive-16by9 ">
+				<iframe
+					class="embed-responsive-item"
+					src={`https://www.youtube.com/embed/${trailerKey}`}
+					allowfullscreen
+				></iframe>
+			</div>
+		</div>
+	);
 };
 
 export default ShowMovie;

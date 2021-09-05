@@ -14,7 +14,9 @@ const MovieSearch = ({ movie }) => {
 		<>
 			{error === "error" ? (
 				<div className=" mh-container mt-62 emptysearch">
-					<h1 className="text-warning">Please type something</h1>
+					<h2 className="text-warning text-center">
+						Please type something
+					</h2>
 					<div>
 						<a
 							className="btn btn-warning home-btn d-flex align-items-center"
