@@ -3,19 +3,23 @@ import axios from "axios";
 
 function useAxios(url) {
 	const [data, setData] = useState({});
-	const [error, setError] = useState("");
+	const [error, setError] = useState(null);
 	const [isLoading, setIsLoading] = useState(false);
 
 	useEffect(() => {
-		setIsLoading(true);
 		const fetchData = () => {
+			setIsLoading(true);
+			setError(null);
 			axios
 				.get(url)
 				.then((res) => {
 					setData(res.data);
 					setIsLoading(false);
 				})
-				.catch((err) => setError(`error in${url}`));
+				.catch((err) => {
+					setIsLoading(false);
+					setError("error");
+				});
 		};
 		fetchData();
 	}, [url]);

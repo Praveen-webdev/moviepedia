@@ -11,6 +11,7 @@ export default function Header({ setMovie }) {
 	function handleOnSubmit(e) {
 		e.preventDefault();
 		setMovie(input);
+		setInput("");
 		history.push("/search");
 	}
 	return (

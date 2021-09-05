@@ -5,6 +5,7 @@ import ScrollRestoration from "react-scroll-restoration";
 import Home from "./components/Home.jsx";
 import ShowMovie from "./components/ShowMovie.js";
 import MovieSearch from "./components/MovieSearch";
+import Footer from "./components/Footer.jsx";
 
 function App() {
   const [movieSearch, setMovieSearch] = useState("");
@@ -23,6 +24,7 @@ function App() {
             <MovieSearch movie={movieSearch} />
           </Route>
         </Switch>
+        <Footer />
       </div>
     </BrowserRouter>
   );

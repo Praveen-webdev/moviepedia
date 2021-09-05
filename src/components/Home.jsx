@@ -7,7 +7,6 @@ import Pagination from "./Pagination.jsx";
 
 const url = "https://api.themoviedb.org/3";
 const nowPlayingUrl = `${url}/movie/now_playing?api_key=${process.env.REACT_APP_MY_API_KEY}&page=1`;
-const topratedUrl = `${url}/movie/top_rated`;
 const genreUrl = `${url}/genre/movie/list?api_key=${process.env.REACT_APP_MY_API_KEY}&page=1`;
 
 const Home = () => {
@@ -20,7 +19,7 @@ const Home = () => {
 	function handlePageClick({ selected: selectedPage }) {
 		setGenrePage(selectedPage === 0 ? 20 : selectedPage);
 		window.scrollTo({
-			top: 195,
+			top: 210,
 			behavior: "smooth",
 		});
 	}
