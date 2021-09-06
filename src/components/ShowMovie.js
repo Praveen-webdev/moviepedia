@@ -3,22 +3,27 @@ import { useParams } from "react-router-dom";
 import useAxios from "./useAxios.js";
 import "./Home.css";
 import Spinner from "./Spinner.js";
+import { useHistory } from "react-router-dom";
 
 const ShowMovie = () => {
+	const history = useHistory();
 	const { id } = useParams();
 	const movieUrl = `https://api.themoviedb.org/3/movie/${id}?api_key=${process.env.REACT_APP_MY_API_KEY}`;
-	const trailerUrl = `https://api.themoviedb.org/3/movie/${id}/videos?api_key=${process.env.REACT_APP_MY_API_KEY}`;
-	const castUrl = `https://api.themoviedb.org/3/movie/${id}/credits?api_key=${process.env.REACT_APP_MY_API_KEY}`;
 	const { data: movieDetail, isLoading } = useAxios(movieUrl);
+	const trailerUrl = `https://api.themoviedb.org/3/movie/${id}/videos?api_key=${process.env.REACT_APP_MY_API_KEY}`;
 	const { data: trailerData } = useAxios(trailerUrl);
 	const trailerKey = trailerData?.results?.[0]?.key;
+	const castUrl = `https://api.themoviedb.org/3/movie/${id}/credits?api_key=${process.env.REACT_APP_MY_API_KEY}`;
 	const { data: castObj } = useAxios(castUrl);
 	const castData = castObj?.cast;
+	const castScroller = () => {
+		document.getElementById("cast-scroller").scrollLeft += 100;
+	};
 	const castList = castData?.slice(0, 10).map((c, i) => {
 		return (
 			<div className="col-4 text-center profile" key={i}>
 				<img
-					className="img-fluid rounded-circle mx-auto d-block"
+					className="img-fluid rounded-circle mx-auto d-block "
 					src={`https://image.tmdb.org/t/p/w200/${c.profile_path}`}
 					alt={c.name}
 				></img>
@@ -37,9 +42,30 @@ const ShowMovie = () => {
 			</div>
 		);
 	});
-	const castScroller = () => {
-		document.getElementById("cast-scroller").scrollLeft += 100;
-	};
+	const similarMovieUrl = `https://api.themoviedb.org/3/movie/${id}/similar?api_key=${process.env.REACT_APP_MY_API_KEY}`;
+	const { data: similarMovieObj } = useAxios(similarMovieUrl);
+	const similarMovieData = similarMovieObj?.results;
+	console.log(similarMovieData);
+	const similarMovie = similarMovieData?.slice(0, 10).map((movie) => {
+		return (
+			<div
+				className="card-wrapper"
+				key={movie.id}
+				onClick={() => history.push(`/movie/${movie.id}`)}
+			>
+				<img
+					src={`https://image.tmdb.org/t/p/w200${movie.poster_path}`}
+					alt={movie.title}
+					className="genre-img img-skeleton"
+				/>
+				<div className="img-tip label">
+					{movie.vote_average.toFixed(1)}
+				</div>
+				<h6 className="genre-title">{movie.title}</h6>
+			</div>
+		);
+	});
+
 	return (
 		<div className="mt-62 mh-container">
 			{isLoading ? (
@@ -67,13 +93,13 @@ const ShowMovie = () => {
 							<p>OVERVIEW </p>
 							{movieDetail?.overview}
 						</div>
+						<div class="divider div-transparent div-dot"></div>
 						<div className="mt-3 ">
 							<p>CAST</p>
 							<div
 								className=" d-inline-block float-right scroll-btn"
 								onClick={castScroller}
 							>
-								<p className="d-inline mr-1">Scroll to more</p>
 								<svg
 									xmlns="http://www.w3.org/2000/svg"
 									width="30"
@@ -93,6 +119,13 @@ const ShowMovie = () => {
 									{castList}
 								</div>
 							</div>{" "}
+						</div>
+						<div class="divider div-transparent div-dot"></div>
+						<div className="mt-3 ">
+							<p>SIMILAR MOVIES</p>
+							<div className="mt-2 card-container mh-container ">
+								{similarMovie}
+							</div>
 						</div>
 					</div>
 				</>

@@ -13,7 +13,7 @@ const MoviesByGenre = ({ movie }) => {
 				alt={movie.title}
 				className="genre-img img-skeleton"
 			/>
-			<div className="img-tip label">{movie.vote_average}</div>
+			<div className="img-tip label">{movie.vote_average.toFixed(1)}</div>
 			<h6 className="genre-title">{movie.title}</h6>
 		</div>
 	);

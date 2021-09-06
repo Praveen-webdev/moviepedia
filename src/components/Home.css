@@ -49,7 +49,9 @@
   transition-duration: 500ms;
 }
 .label {
-  width: 2em;
+  max-height: 35px;
+  min-width: 2.5rem;
+  width: auto;
   padding: 4px;
   font-size: 1em;
   line-height: 1;
@@ -120,6 +122,9 @@
 }
 .cast-wrapper {
   overflow-x: scroll;
+}
+.img-fluid {
+  min-height: 120px;
 }
 @media screen and (max-width: 800px) {
   /* CarouselComponent.js */
