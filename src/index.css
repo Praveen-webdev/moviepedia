@@ -36,7 +36,19 @@ body {
   margin-top: 15px;
   height: 1px;
 }
-
+.div-arrow-down:after {
+  content: "";
+  position: absolute;
+  z-index: 1;
+  top: -7px;
+  left: calc(50% - 7px);
+  width: 14px;
+  height: 14px;
+  transform: rotate(45deg);
+  background-color: #181920ff;
+  border-bottom: 1px solid rgb(48, 49, 51);
+  border-right: 1px solid rgb(48, 49, 51);
+}
 .div-transparent:before {
   content: "";
   position: absolute;
@@ -55,6 +67,7 @@ body {
 .img-skeleton {
   animation: skeleton-loading 500ms linear infinite alternate;
 }
+
 @keyframes skeleton-loading {
   0% {
     background-color: hsl(47, 64%, 49%);
