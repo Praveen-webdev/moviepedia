@@ -18,7 +18,7 @@ export default function Header({ setMovie }) {
 		<div className="header fixed-top ">
 			<nav className="navbar ">
 				<div id="header-items" className="container-fluid">
-					<h4 className="navbar-brand d-flex mt-1 ">
+					<h4 className="navbar-brand d-flex  mr-auto">
 						<svg
 							xmlns="http://www.w3.org/2000/svg"
 							width="16"
@@ -31,7 +31,10 @@ export default function Header({ setMovie }) {
 						</svg>
 						Moviepedia
 					</h4>
-					<form className="d-flex " onSubmit={handleOnSubmit}>
+					<form
+						className="d-flex align-items-center"
+						onSubmit={handleOnSubmit}
+					>
 						<input
 							className="form-control "
 							type="search"

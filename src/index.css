@@ -17,3 +17,14 @@ body {
   width: 100%;
   padding-top: 0.3rem;
 }
+.img-skeleton {
+  animation: skeleton-loading 500ms linear infinite alternate;
+}
+@keyframes skeleton-loading {
+  0% {
+    background-color: hsl(47, 64%, 49%);
+  }
+  100% {
+    background-color: hsl(39, 100%, 50%);
+  }
+}

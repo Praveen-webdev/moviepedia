@@ -5,10 +5,12 @@
 .container-fluid {
     flex-wrap: nowrap !important;
     justify-content: space-around !important;
+    align-items: flex-start !important;
 }
 .header {
     background-color: #fab005;
     color: #181920ff;
+    height: 55px;
 }
 .navbar-brand {
     font-family: "Righteous", cursive !important;

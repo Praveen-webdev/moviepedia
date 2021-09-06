@@ -1,6 +1,6 @@
 /* CarouselComponent.js */
 .mt-62 {
-  margin-top: 62px;
+  margin-top: 55px;
 }
 .mh-container {
   min-height: 88vh;
@@ -75,17 +75,7 @@
   width: 200px;
   height: 300px;
 }
-.img-skeleton {
-  animation: skeleton-loading 500ms linear infinite alternate;
-}
-@keyframes skeleton-loading {
-  0% {
-    background-color: hsl(47, 64%, 49%);
-  }
-  100% {
-    background-color: hsl(39, 100%, 50%);
-  }
-}
+
 /* pagination*/
 .pagination {
   display: flex;
