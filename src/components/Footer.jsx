@@ -5,7 +5,7 @@ const Footer = () => {
 		<div className="footer sticky-bottom">
 			<h6>
 				Developed by
-				<span style={{ color: "#181920ff" }}> Praveen</span>
+				<span style={{ color: "white" }}> Praveen</span>
 			</h6>
 		</div>
 	);
