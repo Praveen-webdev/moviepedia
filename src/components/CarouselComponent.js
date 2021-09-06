@@ -5,7 +5,7 @@ import Carousel from "./Carousel.js";
 import { Link } from "react-router-dom";
 
 const CarouselComponent = ({ url }) => {
-	const { data: nowPlaying, isLoading } = useAxios(url);
+	const { data: nowPlaying } = useAxios(url);
 	const nowPlayingArray = nowPlaying.results;
 
 	return (

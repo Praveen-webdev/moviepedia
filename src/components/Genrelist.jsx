@@ -7,24 +7,22 @@ const Genrelist = ({ url, handleGenreFetch }) => {
 	const genreListArray = genreList.genres;
 	return (
 		<div className="genre mt-2 d-flex sticky-top">
-			<h4>Genre : </h4>
+			<h5 style={{ color: "#5a606b", fontWeight: "bolder" }}>Genre : </h5>
 			<div class="dropdown ">
-				<a
+				<button
 					class="btn btn-warning dropdown-toggle"
-					href="#"
-					role="button"
 					id="dropdownMenuLink"
 					data-toggle="dropdown"
 					aria-haspopup="true"
 					aria-expanded="false"
 				>
 					{currentGenre}
-				</a>
+				</button>
 
 				<div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
 					{genreListArray &&
 						genreListArray.slice(1).map((genre) => (
-							<a
+							<button
 								key={genre.id}
 								className="dropdown-item "
 								onClick={() => {
@@ -33,7 +31,7 @@ const Genrelist = ({ url, handleGenreFetch }) => {
 								}}
 							>
 								{genre.name}
-							</a>
+							</button>
 						))}
 				</div>
 			</div>

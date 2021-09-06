@@ -82,6 +82,7 @@
   justify-content: space-around;
   list-style: none;
   cursor: pointer;
+  color: rgb(198, 197, 202);
 }
 
 .pagination a {
@@ -102,10 +103,24 @@
 }
 
 .pagination__link--disabled a {
-  color: rgb(198, 197, 202);
+  color: #5a606b;
+
   border: 1px solid rgb(198, 197, 202);
 }
-
+/* ShowMovie.js */
+.scroll-btn {
+  cursor: pointer;
+}
+.cast-container {
+  clear: both;
+}
+.mt-3 p {
+  color: #5a606b;
+  font-weight: bolder;
+}
+.cast-wrapper {
+  overflow-x: scroll;
+}
 @media screen and (max-width: 800px) {
   /* CarouselComponent.js */
   .dropdown-menu {

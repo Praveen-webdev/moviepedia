@@ -1,32 +1,99 @@
 import React from "react";
 import { useParams } from "react-router-dom";
 import useAxios from "./useAxios.js";
-import "./showmovie.css";
+import "./Home.css";
 import Spinner from "./Spinner.js";
 
 const ShowMovie = () => {
 	const { id } = useParams();
 	const movieUrl = `https://api.themoviedb.org/3/movie/${id}?api_key=${process.env.REACT_APP_MY_API_KEY}`;
 	const trailerUrl = `https://api.themoviedb.org/3/movie/${id}/videos?api_key=${process.env.REACT_APP_MY_API_KEY}`;
-	const youtubeUrl = "https://www.youtube.com/watch?v=";
+	const castUrl = `https://api.themoviedb.org/3/movie/${id}/credits?api_key=${process.env.REACT_APP_MY_API_KEY}`;
 	const { data: movieDetail, isLoading } = useAxios(movieUrl);
 	const { data: trailerData } = useAxios(trailerUrl);
 	const trailerKey = trailerData?.results?.[0]?.key;
-	console.log(movieDetail);
-	console.log(trailerData);
-	console.log(trailerKey);
+	const { data: castObj } = useAxios(castUrl);
+	const castData = castObj?.cast;
+	const castList = castData?.slice(0, 10).map((c, i) => {
+		return (
+			<div className="col-4 text-center profile" key={i}>
+				<img
+					className="img-fluid rounded-circle mx-auto d-block"
+					src={`https://image.tmdb.org/t/p/w200/${c.profile_path}`}
+					alt={c.name}
+				></img>
+				<p
+					className="font-weight-bold text-center"
+					style={{ color: "white" }}
+				>
+					{c.name}
+				</p>
+				<p
+					className="font-weight-light text-center"
+					style={{ color: "#5a606b" }}
+				>
+					{c.character}
+				</p>
+			</div>
+		);
+	});
+	const castScroller = () => {
+		document.getElementById("cast-scroller").scrollLeft += 100;
+	};
 	return (
 		<div className="mt-62 mh-container">
 			{isLoading ? (
 				<Spinner />
 			) : (
 				<>
-					<div class="embed-responsive embed-responsive-16by9 img-skeleton">
+					<div className="embed-responsive embed-responsive-16by9 img-skeleton">
 						<iframe
-							class="embed-responsive-item"
+							title="trailer"
+							allowFullScreen
+							mozallowfullscreen="true"
+							webkitallowfullscreen="true"
+							className="embed-responsive-item"
 							src={`https://www.youtube.com/embed/${trailerKey}`}
-							allowfullscreen
 						></iframe>
+					</div>
+					<div className="container">
+						<h4 className="mt-1 text-center font-weight-bold text-center d-flex justify-content-center">
+							{movieDetail?.title}{" "}
+							<div className="label">
+								{movieDetail?.vote_average}
+							</div>
+						</h4>
+						<div className="mt-3 ">
+							<p>OVERVIEW </p>
+							{movieDetail?.overview}
+						</div>
+						<div className="mt-3 ">
+							<p>CAST</p>
+							<div
+								className=" d-inline-block float-right scroll-btn"
+								onClick={castScroller}
+							>
+								<p className="d-inline mr-1">Scroll to more</p>
+								<svg
+									xmlns="http://www.w3.org/2000/svg"
+									width="30"
+									height="30"
+									fill="#FAB005"
+									class="bi bi-arrow-right-circle-fill"
+									viewBox="0 0 16 16"
+								>
+									<path d="M8 0a8 8 0 1 1 0 16A8 8 0 0 1 8 0zM4.5 7.5a.5.5 0 0 0 0 1h5.793l-2.147 2.146a.5.5 0 0 0 .708.708l3-3a.5.5 0 0 0 0-.708l-3-3a.5.5 0 1 0-.708.708L10.293 7.5H4.5z" />
+								</svg>
+							</div>
+							<div class="container-fluid cast-container">
+								<div
+									class="row cast-wrapper flex-row flex-nowrap"
+									id="cast-scroller"
+								>
+									{castList}
+								</div>
+							</div>{" "}
+						</div>
 					</div>
 				</>
 			)}
