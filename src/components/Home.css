@@ -31,6 +31,11 @@
   margin-top: 10vh !important;
 }
 /*   MoviesByGenre.jsx*/
+.genre {
+  align-items: center;
+  place-items: flex-end;
+  justify-content: center;
+}
 .card-container {
   display: flex;
   flex-wrap: wrap;
@@ -116,9 +121,12 @@
 .cast-container {
   clear: both;
 }
-.mt-3 p {
+.mt-3 > p {
   color: #5a606b;
-  font-weight: bolder;
+  font-weight: bold;
+  letter-spacing: 0.05rem;
+  font-size: 20px;
+  font-family: "Staatliches", cursive;
 }
 .cast-wrapper {
   overflow-x: scroll;
