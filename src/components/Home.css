@@ -134,10 +134,6 @@
 .img-fluid {
   min-height: 120px;
 }
-.backbtn {
-  display: flex;
-  justify-content: center;
-}
 @media screen and (max-width: 800px) {
   /* CarouselComponent.js */
   .dropdown-menu {

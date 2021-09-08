@@ -11,6 +11,17 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
+.home-btn {
+  border-radius: 50%;
+  position: fixed;
+  right: 20px;
+  bottom: 40px;
+  z-index: 99;
+  border: 2px solid black;
+}
+.home-btn svg {
+  margin-top: -5px !important;
+}
 /*footer*/
 .footer {
   height: 1.8rem;

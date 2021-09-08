@@ -6,10 +6,7 @@
   -ms-box-sizing: border-box;
   box-sizing: border-box;
 }
-.home-btn {
-  margin-top: 10px;
-  width: 100%;
-}
+
 .emptysearch {
   justify-content: center;
   display: flex;
