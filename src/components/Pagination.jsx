@@ -1,14 +1,14 @@
 import React from "react";
 import ReactPaginate from "react-paginate";
 
-const Pagination = ({ handlePageClick }) => {
+const Pagination = ({ handlePageClick, genrePage }) => {
 	return (
 		<div className="container mt-2">
 			<ReactPaginate
 				previousLabel={"← "}
 				nextLabel={" →"}
 				pageCount={99}
-				initialPage={0}
+				forcePage={genrePage}
 				pageRangeDisplayed={1}
 				marginPagesDisplayed={2}
 				disableInitialCallback={true}

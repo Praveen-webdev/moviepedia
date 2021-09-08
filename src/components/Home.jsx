@@ -10,14 +10,17 @@ const nowPlayingUrl = `${url}/movie/now_playing?api_key=${process.env.REACT_APP_
 const genreUrl = `${url}/genre/movie/list?api_key=${process.env.REACT_APP_MY_API_KEY}&page=1`;
 
 const Home = () => {
-	const [genrePage, setGenrePage] = useState(20);
+	const [genrePage, setGenrePage] = useState(0);
 	const [genreId, setGenreId] = useState(28);
 	const handleGenreFetch = (genreid) => {
 		setGenreId(genreid);
+		setGenrePage(0);
 	};
-	const moviesUrl = `${url}/discover/movie?api_key=${process.env.REACT_APP_MY_API_KEY}&page=${genrePage}&with_genres=${genreId}`;
-	function handlePageClick({ selected: selectedPage }) {
-		setGenrePage(selectedPage === 0 ? 20 : selectedPage);
+	const moviesUrl = `${url}/discover/movie?api_key=${
+		process.env.REACT_APP_MY_API_KEY
+	}&page=${genrePage + 1}&with_genres=${genreId}`;
+	function handlePageClick({ selected }) {
+		setGenrePage(selected);
 		window.scrollTo({
 			top: 210,
 			behavior: "smooth",
@@ -28,7 +31,10 @@ const Home = () => {
 			<CarouselComponent url={nowPlayingUrl} />
 			<GenreList url={genreUrl} handleGenreFetch={handleGenreFetch} />
 			<Genre url={moviesUrl} />
-			<Pagination handlePageClick={handlePageClick} />
+			<Pagination
+				handlePageClick={handlePageClick}
+				genrePage={genrePage}
+			/>
 		</>
 	);
 };

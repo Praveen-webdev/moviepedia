@@ -12,8 +12,8 @@ function useAxios(url) {
 			setError(null);
 			axios
 				.get(url)
-				.then((res) => {
-					setData(res.data);
+				.then(({ data }) => {
+					setData(data);
 					setIsLoading(false);
 				})
 				.catch((err) => {
