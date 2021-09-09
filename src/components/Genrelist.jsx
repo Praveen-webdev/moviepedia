@@ -34,19 +34,8 @@ const Genrelist = ({ url, handleGenreFetch, handleSortFetch }) => {
 						class="dropdown-menu"
 						aria-labelledby="dropdownMenuLink"
 					>
-						{currentGenre !== "Action" && (
-							<button
-								className="dropdown-item"
-								onClick={() => {
-									handleGenreFetch(28);
-									setCurrentGenre("Action");
-								}}
-							>
-								Action
-							</button>
-						)}
 						{genreListArray &&
-							genreListArray.slice(1).map((genre) => (
+							genreListArray.slice(currentGenre==="Action"?1:0).map((genre) => (
 								<button
 									key={genre.id}
 									className="dropdown-item "
