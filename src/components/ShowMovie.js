@@ -79,7 +79,7 @@ const ShowMovie = () => {
 	});
 
 	return (
-		<div className="mt-62 mh-container">
+		<div className=" mh-container">
 			{isLoading ? (
 				<Spinner />
 			) : (
@@ -95,7 +95,7 @@ const ShowMovie = () => {
 						></iframe>
 					</div>
 					<div className="container">
-						<h4 className="mt-1 text-center font-weight-bold text-center d-flex justify-content-center">
+						<h4 className="mt-1 text-center movie-titile font-weight-bold text-center ">
 							{movieDetail?.title}{" "}
 							<div className="label">
 								{movieDetail?.vote_average}
@@ -104,6 +104,12 @@ const ShowMovie = () => {
 						<div className="mt-3 ">
 							<p>OVERVIEW </p>
 							{movieDetail?.overview}
+							<p className="mt-2 mb-1">
+								RELEASE DATE :{" "}
+								<span className="text-warning">
+									{movieDetail.release_date}
+								</span>
+							</p>
 						</div>
 						<div className="divider div-transparent div-dot"></div>
 						<div className="mt-3 ">
@@ -130,7 +136,7 @@ const ShowMovie = () => {
 								>
 									{castList}
 								</div>
-							</div>{" "}
+							</div>
 						</div>
 						<div className="divider div-transparent div-dot"></div>
 						<div className="mt-3 ">

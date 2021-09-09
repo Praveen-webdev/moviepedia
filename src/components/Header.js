@@ -15,7 +15,7 @@ export default function Header({ setMovie }) {
 		history.push("/search");
 	}
 	return (
-		<div className="header fixed-top ">
+		<div className="header sticky-top ">
 			<nav className="navbar ">
 				<div id="header-items" className="container-fluid">
 					<h4 className="navbar-brand d-flex  mr-auto">

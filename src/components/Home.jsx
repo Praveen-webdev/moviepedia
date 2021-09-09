@@ -12,13 +12,18 @@ const genreUrl = `${url}/genre/movie/list?api_key=${process.env.REACT_APP_MY_API
 const Home = () => {
 	const [genrePage, setGenrePage] = useState(0);
 	const [genreId, setGenreId] = useState(28);
+	const [sortValue, setSortValue] = useState("popularity.desc");
 	const handleGenreFetch = (genreid) => {
-		setGenreId(genreid);
 		setGenrePage(0);
+		setGenreId(genreid);
+	};
+	const handleSortFetch = (value) => {
+		setGenrePage(0);
+		setSortValue(value);
 	};
 	const moviesUrl = `${url}/discover/movie?api_key=${
 		process.env.REACT_APP_MY_API_KEY
-	}&page=${genrePage + 1}&with_genres=${genreId}`;
+	}&page=${genrePage + 1}&with_genres=${genreId}&sort_by=${sortValue}`;
 	function handlePageClick({ selected }) {
 		setGenrePage(selected);
 		window.scrollTo({
@@ -29,7 +34,11 @@ const Home = () => {
 	return (
 		<>
 			<CarouselComponent url={nowPlayingUrl} />
-			<GenreList url={genreUrl} handleGenreFetch={handleGenreFetch} />
+			<GenreList
+				url={genreUrl}
+				handleGenreFetch={handleGenreFetch}
+				handleSortFetch={handleSortFetch}
+			/>
 			<Genre url={moviesUrl} />
 			<Pagination
 				handlePageClick={handlePageClick}

@@ -1,7 +1,4 @@
 /* CarouselComponent.js */
-.mt-62 {
-  margin-top: 55px;
-}
 .mh-container {
   min-height: 88vh;
 }
@@ -31,11 +28,14 @@
   margin-top: 10vh !important;
 }
 /*   MoviesByGenre.jsx*/
-.genre {
-  align-items: center;
-  place-items: flex-end;
-  justify-content: center;
+.filters {
+  top: 55px;
+  background-color: #181920ff;
 }
+.sortby-dropdown {
+  margin-left: auto;
+}
+
 .card-container {
   display: flex;
   flex-wrap: wrap;
@@ -133,6 +133,11 @@
 }
 .img-fluid {
   min-height: 120px;
+}
+.movie-titile {
+  display: flex;
+  justify-content: center;
+  gap: 5px;
 }
 @media screen and (max-width: 800px) {
   /* CarouselComponent.js */
