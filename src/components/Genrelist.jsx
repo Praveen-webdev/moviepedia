@@ -5,17 +5,17 @@ const Genrelist = ({ url, handleGenreFetch, handleSortFetch }) => {
 	const [currentGenre, setCurrentGenre] = useState("Action");
 	const [currentSort, setCurrentSort] = useState("Popularity");
 	const sortBy = [
+		{ name: "Popularity", value: "popularity.desc" },
 		{ name: "Revenue", value: "revenue.desc" },
 		{ name: "Voting", value: "vote_average.desc" },
 		{ name: "Vote count", value: "vote_count.desc" },
 		{ name: "Release Date", value: "primary_release_date.desc" },
-		{ name: "Popularity", value: "popularity.desc" },
 	];
 	const { data: genreList } = useAxios(url);
 	const genreListArray = genreList.genres;
 	return (
 		<div className="filters mt-2  sticky-top">
-			<div className="genre-dropdown mt-1 d-flex align-items-center ml-2 w-50 ">
+			<div className="genre-dropdown mt-1 d-flex align-items-center ml-auto  w-50 ">
 				<h5 style={{ color: "#5a606b", fontWeight: "bolder" }}>
 					Genre :{" "}
 				</h5>
@@ -58,11 +58,10 @@ const Genrelist = ({ url, handleGenreFetch, handleSortFetch }) => {
 									{genre.name}
 								</button>
 							))}
-						}
 					</div>
 				</div>
 			</div>
-			<div className="sortby-dropdown d-flex align-items-center mr-5 w-50">
+			<div className="sortby-dropdown d-flex align-items-center ml-auto mr-5 w-50">
 				<h5 style={{ color: "#5a606b", fontWeight: "bolder" }}>
 					Sort by :{" "}
 				</h5>
@@ -81,18 +80,20 @@ const Genrelist = ({ url, handleGenreFetch, handleSortFetch }) => {
 						class="dropdown-menu"
 						aria-labelledby="dropdownMenuLink"
 					>
-						{sortBy.map((sort) => (
-							<button
-								key={sort.value}
-								className="dropdown-item "
-								onClick={() => {
-									handleSortFetch(sort.value);
-									setCurrentSort(sort.name);
-								}}
-							>
-								{sort.name}
-							</button>
-						))}
+						{sortBy
+							.slice(currentSort === "Popularity" ? 1 : 0)
+							.map((sort) => (
+								<button
+									key={sort.value}
+									className="dropdown-item "
+									onClick={() => {
+										handleSortFetch(sort.value);
+										setCurrentSort(sort.name);
+									}}
+								>
+									{sort.name}
+								</button>
+							))}
 					</div>
 				</div>
 			</div>

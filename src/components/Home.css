@@ -32,10 +32,9 @@
   top: 55px;
   background-color: #181920ff;
 }
-.sortby-dropdown {
-  margin-left: auto;
+.genre-dropdown {
+  margin-right: 150px;
 }
-
 .card-container {
   display: flex;
   flex-wrap: wrap;
@@ -85,13 +84,9 @@
 
 /* pagination*/
 .pagination {
-  display: flex;
-  justify-content: space-around;
-  list-style: none;
-  cursor: pointer;
-  color: rgb(198, 197, 202);
+  justify-content: center;
+  gap: 10px;
 }
-
 .pagination a {
   padding: 10px;
   border-radius: 5px;
@@ -111,7 +106,6 @@
 
 .pagination__link--disabled a {
   color: #5a606b;
-
   border: 1px solid rgb(198, 197, 202);
 }
 /* ShowMovie.js */
@@ -156,4 +150,11 @@
     height: 211.5px;
   }
   /* pagination*/
+  .pagination {
+    display: flex;
+    justify-content: space-around;
+    list-style: none;
+    cursor: pointer;
+    color: rgb(198, 197, 202);
+  }
 }

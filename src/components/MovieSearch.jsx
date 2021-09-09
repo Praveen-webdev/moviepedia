@@ -18,7 +18,7 @@ const MovieSearch = ({ movie }) => {
 						Please type something
 					</h2>
 					<div>
-						<a
+						<button
 							className="btn btn-warning home-btn "
 							onClick={() => history.push("/")}
 						>
@@ -32,7 +32,7 @@ const MovieSearch = ({ movie }) => {
 							>
 								<path d="M6.5 14.5v-3.505c0-.245.25-.495.5-.495h2c.25 0 .5.25.5.5v3.5a.5.5 0 0 0 .5.5h4a.5.5 0 0 0 .5-.5v-7a.5.5 0 0 0-.146-.354L13 5.793V2.5a.5.5 0 0 0-.5-.5h-1a.5.5 0 0 0-.5.5v1.293L8.354 1.146a.5.5 0 0 0-.708 0l-6 6A.5.5 0 0 0 1.5 7.5v7a.5.5 0 0 0 .5.5h4a.5.5 0 0 0 .5-.5z" />
 							</svg>
-						</a>
+						</button>
 					</div>
 				</div>
 			) : searchedMovie == null ? (
@@ -45,7 +45,7 @@ const MovieSearch = ({ movie }) => {
 				</div>
 			) : (
 				<div>
-					<a
+					<button
 						className="btn btn-warning home-btn"
 						onClick={() => history.push("/")}
 					>
@@ -59,9 +59,9 @@ const MovieSearch = ({ movie }) => {
 						>
 							<path d="M6.5 14.5v-3.505c0-.245.25-.495.5-.495h2c.25 0 .5.25.5.5v3.5a.5.5 0 0 0 .5.5h4a.5.5 0 0 0 .5-.5v-7a.5.5 0 0 0-.146-.354L13 5.793V2.5a.5.5 0 0 0-.5-.5h-1a.5.5 0 0 0-.5.5v1.293L8.354 1.146a.5.5 0 0 0-.708 0l-6 6A.5.5 0 0 0 1.5 7.5v7a.5.5 0 0 0 .5.5h4a.5.5 0 0 0 .5-.5z" />
 						</svg>
-					</a>
+					</button>
 
-					<div className=" card-container mh-container ">
+					<div className=" card-container mh-container mb-5">
 						{searchedMovie.length === 0 ? (
 							<div class="error-page-wrap">
 								<article class="error-page gradient">
@@ -69,7 +69,7 @@ const MovieSearch = ({ movie }) => {
 										<h1>404</h1>
 										<h2>No results found!</h2>
 									</hgroup>
-									<a
+									<button
 										onClick={() => history.push("/")}
 										title="Back to site"
 										class="error-back"
@@ -92,7 +92,7 @@ const MovieSearch = ({ movie }) => {
 											/>
 										</svg>
 										Back to home
-									</a>
+									</button>
 								</article>
 							</div>
 						) : (

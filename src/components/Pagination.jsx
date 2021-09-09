@@ -10,7 +10,7 @@ const Pagination = ({ handlePageClick, genrePage }) => {
 				pageCount={99}
 				forcePage={genrePage}
 				pageRangeDisplayed={1}
-				marginPagesDisplayed={2}
+				marginPagesDisplayed={1}
 				disableInitialCallback={true}
 				onPageChange={handlePageClick}
 				containerClassName={"pagination"}
