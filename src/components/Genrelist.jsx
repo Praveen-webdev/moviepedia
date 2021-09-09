@@ -9,6 +9,7 @@ const Genrelist = ({ url, handleGenreFetch, handleSortFetch }) => {
 		{ name: "Voting", value: "vote_average.desc" },
 		{ name: "Vote count", value: "vote_count.desc" },
 		{ name: "Release Date", value: "primary_release_date.desc" },
+		{ name: "Popularity", value: "popularity.desc" },
 	];
 	const { data: genreList } = useAxios(url);
 	const genreListArray = genreList.genres;
@@ -33,6 +34,17 @@ const Genrelist = ({ url, handleGenreFetch, handleSortFetch }) => {
 						class="dropdown-menu"
 						aria-labelledby="dropdownMenuLink"
 					>
+						{currentGenre !== "Action" && (
+							<button
+								className="dropdown-item"
+								onClick={() => {
+									handleGenreFetch(28);
+									setCurrentGenre("Action");
+								}}
+							>
+								Action
+							</button>
+						)}
 						{genreListArray &&
 							genreListArray.slice(1).map((genre) => (
 								<button
@@ -46,6 +58,7 @@ const Genrelist = ({ url, handleGenreFetch, handleSortFetch }) => {
 									{genre.name}
 								</button>
 							))}
+						}
 					</div>
 				</div>
 			</div>

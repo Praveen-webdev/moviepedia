@@ -16,10 +16,18 @@ const Home = () => {
 	const handleGenreFetch = (genreid) => {
 		setGenrePage(0);
 		setGenreId(genreid);
+		window.scrollTo({
+			top: 210,
+			behavior: "smooth",
+		});
 	};
 	const handleSortFetch = (value) => {
 		setGenrePage(0);
 		setSortValue(value);
+		window.scrollTo({
+			top: 210,
+			behavior: "smooth",
+		});
 	};
 	const moviesUrl = `${url}/discover/movie?api_key=${
 		process.env.REACT_APP_MY_API_KEY
